@@ -1,4 +1,4 @@
-pragma solidity ^0.4.21;
+pragma solidity ^0.4.24;
 
 interface ITokenReceiver {
     function tokenFallback(address from, uint256 value, bytes data) external;
