@@ -17,10 +17,6 @@ contract TokenWhale {
         balanceOf[player] = 1000;
     }
 
-    function isComplete() public view returns (bool) {
-        return balanceOf[player] >= 1000000;
-    }
-
     event Transfer(address indexed from, address indexed to, uint256 value);
 
     function _transfer(address to, uint256 value) internal {
