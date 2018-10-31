@@ -1,5 +1,7 @@
 pragma solidity ^0.4.19;
 
+// LOl
+
 contract EtherBank {
   mapping (address => uint) public balances;
     
