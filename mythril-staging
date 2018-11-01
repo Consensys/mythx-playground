@@ -1,4 +1,12 @@
+if [[ $SHELL =~ bash ]]; then
+   if [[ $0 == ${BASH_SOURCE[0]} ]] ; then
+       echo "This script should be *sourced* rather than run directly through bash"
+       exit 1
+   fi
+fi
+
 export MYTHRIL_API_KEY=ace9b42d-4c97-407c-b197-a9b2e5ab6759
 export MYTHRIL_API_URL='https://staging.api.mythril.ai'
 export EMAIL=me@example.com
-echo Set up to use Mythril staging
+
+echo Congratulations! You are now set up to use the Mythril Platform staging server.
