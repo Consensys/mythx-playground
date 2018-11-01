@@ -1,4 +1,7 @@
-.DS_Store
-build
-*test.sol
 *cheat.sol
+*test.sol
+*~
+.DS_Store
+/.python-version
+build
+/tmp
