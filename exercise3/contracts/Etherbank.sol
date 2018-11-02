@@ -14,7 +14,6 @@ contract EtherBank {
   function withdraw(uint amount) public {
     if (balances[msg.sender]>= amount) {
       balances[msg.sender] -= amount;
-      // Improper fix
       require(msg.sender.call.value(amount)());
     }
   }
