@@ -6,7 +6,7 @@ contract EtherBank {
   function EtherBank() public  payable{
       require(msg.value == 10 ether);
   }
-    
+//    
   function deposit(address to) payable public {
     balances[to] += msg.value;
   }
