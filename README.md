@@ -6,6 +6,6 @@ Exercises to go along with the DevCon4 workshop [How To Not Get Rekt](https://gi
 $ git clone git@github.com:ConsenSys/devcon4-playground.git
 ```
 
-#### Setting up Guardrails
+#### Setting up Guardrailsa
 
 You can install the [Guardrails Github app](https://github.com/apps/guardrails) and point it to your copy of this repo. 
