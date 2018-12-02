@@ -6,7 +6,7 @@ if [[ $SHELL =~ bash ]]; then
 fi
 
 export MYTHRIL_API_KEY=ace9b42d-4c97-407c-b197-a9b2e5ab6759
-export MYTHRIL_API_URL='https://staging.api.mythril.ai'
+export MYTHRIL_API_URL='https://api.mythril.ai'
 export EMAIL=me@example.com
 
-echo Congratulations! You are now set up to use the Mythril Platform staging server.
+echo Congratulations! You are now set up to use MythOS.
