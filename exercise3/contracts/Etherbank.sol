@@ -1,9 +1,9 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.5.0;
 
 contract EtherBank {
   mapping (address => uint) public balances;
 
-  function EtherBank() public  payable{
+  constructor() public payable{
       require(msg.value == 10 ether);
   }
 
@@ -14,18 +14,19 @@ contract EtherBank {
   function withdraw(uint amount) public {
     if (balances[msg.sender]>= amount) {
       balances[msg.sender] -= amount;
-      require(msg.sender.call.value(amount)());
+      (bool success, bytes memory data) = msg.sender.call.value(amount)("");
+      require(success);
     }
   }
 
   function challengeSolved() public view returns(bool){
-    if (this.balance < 1 ether){
+    if (address(this).balance < 1 ether){
         return true;
     }
     return false;
   }
 
-  function() payable public  {
+  function() payable external  {
     balances[msg.sender] += msg.value;
   }
 
@@ -34,6 +35,6 @@ contract EtherBank {
   }
 
   function getBankBalance() view public returns(uint){
-    return this.balance;
+    return address(this).balance;
   }
 }
