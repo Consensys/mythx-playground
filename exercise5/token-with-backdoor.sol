@@ -3,7 +3,7 @@
  * @author: Josselin Feist
  */
 
-contract Token{
+contract Token {
 
     mapping(address => uint) public balances;
     function airdrop() public{
