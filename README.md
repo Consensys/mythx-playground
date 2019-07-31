@@ -9,3 +9,10 @@ Exercises to go along with smart contract security workshops:
 $ git clone git@github.com:ConsenSys/mythx-playground.git
 ```
 
+## Contents
+
+- [Exercise 1: Unprotected critical functions](/exercise1)
+- [Exercise 2: Integer arithmetics](/exercise2)
+- [Exercise 3: Analyzing a Truffle project](/exercise3)
+- [Exercise 4: Custom invariants](/exercise4)
+
