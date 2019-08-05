@@ -19,13 +19,6 @@ contract EtherBank {
     }
   }
 
-  function challengeSolved() public view returns(bool){
-    if (address(this).balance < 1 ether){
-        return true;
-    }
-    return false;
-  }
-
   function() payable external  {
     balances[msg.sender] += msg.value;
   }
@@ -37,4 +30,7 @@ contract EtherBank {
   function getBankBalance() view public returns(uint){
     return address(this).balance;
   }
+
 }
+
+
