@@ -1,14 +1,8 @@
-//sol Wallet
-// A simplified version of the famous multi-sig, daily-limited account proxy/wallet.
+// SimpleWalletLibrary
+// A simplified version of the (in)famous multi-sig, daily-limited account proxy/wallet.
 // @authors:
 // Gav Wood <g@ethdev.com>
 // Adapted by B. Mueller
-// inheritable "property" contract that enables methods to be protected by requiring the acquiescence of either a
-// single, or, crucially, each of a number of, designated owners.
-// usage:
-// use modifiers onlyowner (just own owned) or onlymanyowners(hash), whereby the same hash must be provided by
-// some number (specified in constructor) of the set of owners (specified in the constructor, modifiable) before the
-// interior is executed.
 
 pragma solidity ^0.5.0;
 

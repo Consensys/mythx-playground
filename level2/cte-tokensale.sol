@@ -1,3 +1,8 @@
+/*
+ * @source: https://capturetheether.com/challenges/math/token-sale/
+ * @author: Steve Marx
+ */
+
 pragma solidity ^0.5.0;
 
 contract TokenSale {

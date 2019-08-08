@@ -1,6 +1,6 @@
 /*
- * @source: Ethernaut / Zeppelin Solutions
- * @author: Alejandro Santander
+ * @source: https://ethernaut.openzeppelin.com/level/0x6545df87f57d21cb096a0bfcc53a70464d062512
+ * @author: Alejandro Santander (OpenZeppelin)
  */
 
 pragma solidity ^0.5.0;

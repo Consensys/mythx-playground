@@ -4,7 +4,7 @@ import "./cte_etherbank.sol";
 
 contract VerifyEtherbank is EtherBank {
 	
-	function invariant() public {
+	function checkInvariant() public {
 
     	// Write your invariant here
     	
