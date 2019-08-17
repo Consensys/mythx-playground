@@ -10,8 +10,8 @@ contract Token {
   mapping(address => uint) balances;
   uint public totalSupply;
 
-  constructor(uint _initialSupply) public {
-    balances[msg.sender] = totalSupply = _initialSupply;
+  constructor() public {
+    balances[msg.sender] = totalSupply = 100000;
   }
 
   function transfer(address _to, uint _value) public returns (bool) {

@@ -9,7 +9,7 @@ contract TokenSale {
     mapping(address => uint256) public balanceOf;
     uint256 constant PRICE_PER_TOKEN = 1337 ether;
 
-    constructor(address _player) public payable {
+    constructor() public payable {
         require(msg.value == 1 ether);
     }
 
