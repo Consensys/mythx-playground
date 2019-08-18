@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "./cte_etherbank.sol";
+import "./etherbank.sol";
 
 contract VerifyEtherbank is EtherBank {
 	
