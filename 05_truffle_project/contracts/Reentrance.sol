@@ -6,7 +6,7 @@
 
 pragma solidity ^0.5.0;
 
-import 'SafeMath.sol';
+import './SafeMath.sol';
 
 contract Reentrance {
   
@@ -25,7 +25,7 @@ contract Reentrance {
     if(balances[msg.sender] >= _amount) {
       (bool success, bytes memory retval) = msg.sender.call.value(_amount)("");
 
-	  require(success);
+	     require(success);
 
       balances[msg.sender].sub(_amount);
     }
