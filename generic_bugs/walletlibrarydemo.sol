@@ -1,12 +1,14 @@
-// SimpleWalletLibrary
-// A simplified version of the (in)famous multi-sig, daily-limited account proxy/wallet.
+//sol Wallet
+// A simplified version of the famous multi-sig, daily-limited account proxy/wallet.
 // @authors:
 // Gav Wood <g@ethdev.com>
-// Adapted by B. Mueller
+
+// Adapted by B. Mueller for MythX demo
 
 pragma solidity ^0.5.0;
 
-contract WalletEvents {
+
+contract WalletLibraryDemo {
   // EVENTS
 
   // this contract only has six types of events: it can accept a confirmation, in which case
@@ -30,33 +32,8 @@ contract WalletEvents {
   event MultiTransact(address owner, bytes32 operation, uint value, address to, bytes data, address created);
   // Confirmation still needed for a transaction.
   event ConfirmationNeeded(bytes32 operation, address initiator, uint value, address to, bytes data);
-}
 
-contract WalletAbi {
-  // Revokes a prior confirmation of the given operation
-  function revoke(bytes32 _operation) external;
 
-  // Replaces an owner `_from` with another `_to`.
-  function changeOwner(address _from, address _to) external;
-
-  function addOwner(address _owner) external;
-
-  function removeOwner(address _owner) external;
-
-  function changeRequirement(uint _newRequired) external;
-
-  function isOwner(address _addr) view public returns (bool);
-
-  function hasConfirmed(bytes32 _operation, address _owner) external view returns (bool);
-
-  // (re)sets the daily limit. needs many of the owners to confirm. doesn't alter the amount already spent today.
-  function setDailyLimit(uint _newLimit) external;
-
-  function execute(address _to, uint _value, bytes calldata _data) external returns (bytes32 o_hash);
-  function confirm(bytes32 _h) public returns (bool o_success);
-}
-
-contract SimpleWalletLibrary is WalletEvents {
   // TYPES
 
   // struct for the status of a pending operation.
@@ -106,13 +83,9 @@ contract SimpleWalletLibrary is WalletEvents {
       _;
   }
 
-  // determines today's index.
-  function today() private view returns (uint) { return now / 1 days; }  
-
   // constructor - stores initial daily limit and records the present day's index.
-  function initDaylimit(uint _limit) public only_uninitialized {
+  function initDaylimit(uint _limit) internal only_uninitialized {
     m_dailyLimit = _limit;
-    m_lastDay = today();
   }
 
   // throw unless the contract is not yet initialized.
@@ -128,10 +101,19 @@ contract SimpleWalletLibrary is WalletEvents {
     // constructor is given number of sigs required to do protected "onlymanyowners" transactions
   // as well as the selection of addresses capable of confirming them.
   function initMultiowned(address[] memory _owners, uint _required) internal only_uninitialized {
+      
+    // limit array size so we can demo finding the vuln in "quick" mode.
+    
+    require(_owners.length <= 2);
+    
     m_numOwners = _owners.length + 1;
     m_owners[1] = uint(msg.sender);
     m_ownerIndex[uint(msg.sender)] = 1;
-    
+    for (uint i = 0; i < _owners.length; ++i)
+    {
+      m_owners[2 + i] = uint(_owners[i]);
+      m_ownerIndex[uint(_owners[i])] = 2 + i;
+    }
     m_required = _required;
   }
   
@@ -154,3 +136,4 @@ contract SimpleWalletLibrary is WalletEvents {
   }
 
 }
+\
