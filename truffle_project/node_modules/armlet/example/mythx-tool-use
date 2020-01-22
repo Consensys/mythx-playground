@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+"use strict"
+const util = require('util');
+
+function usage() {
+    console.log(`usage: ${process.argv[1]} *tool-name1* [*tool-name2* ...]
+
+Show the total MythX requests issued by each of the tools given.
+`)
+    process.exit(1)
+}
+
+/**********************************
+  Minimal option processing
+***********************************/
+
+const argLen = process.argv.length
+if (argLen === 3 &&
+    process.argv[2].match(/^[-]{0,2}h(?:elp)?$/)) {
+    usage()
+}
+
+/**********************************
+  Example code starts here ...
+***********************************/
+
+const armlet = require('../index') // if not installed
+// const armlet = require('armlet') // if installed
+
+const promises = armlet.mythXToolUse(process.argv.slice(2))
+for (const promise of promises) {
+    promise.then(result => {
+        console.log(result)
+    }).catch(err => {
+        console.log(`error: ${util.inspect(err)}`)
+    })
+}

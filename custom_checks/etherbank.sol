@@ -32,3 +32,13 @@ contract EtherBank {
   }
 
 }
+
+contract VerifyEtherbank is EtherBank {
+  
+  function checkInvariant() public {
+
+      // Write your invariant here
+      
+  }
+}
+

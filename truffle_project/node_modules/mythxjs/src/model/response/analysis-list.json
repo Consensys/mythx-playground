@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+        "total",
+        "analyses"
+    ],
+    "properties": {
+        "total": {
+            "type": "integer"
+        },
+        "analyses": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "apiVersion",
+                    "harveyVersion",
+                    "maruVersion",
+                    "mythrilVersion",
+                    "queueTime",
+                    "runTime",
+                    "status",
+                    "submittedAt",
+                    "submittedBy",
+                    "uuid"
+                ],
+                "properties": {
+                    "apiVersion": {
+                        "type": "string"
+                    },
+                    "harveyVersion": {
+                        "type": "string"
+                    },
+                    "maruVersion": {
+                        "type": "string"
+                    },
+                    "mythrilVersion": {
+                        "type": "string"
+                    },
+                    "queueTime": {
+                        "type": "integer"
+                    },
+                    "runTime": {
+                        "type": "integer"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "submittedAt": {
+                        "type": "string"
+                    },
+                    "submittedBy": {
+                        "type": "string"
+                    },
+                    "uuid": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

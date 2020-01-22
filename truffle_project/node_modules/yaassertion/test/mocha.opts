@@ -1,0 +1,4 @@
+--recursive
+--require babel-core/register
+--require test/chai
+--reporter progress
