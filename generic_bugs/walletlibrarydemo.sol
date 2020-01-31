@@ -136,4 +136,3 @@ contract WalletLibraryDemo {
   }
 
 }
-\
